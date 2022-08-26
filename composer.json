@@ -1,0 +1,27 @@
+{
+    "name": "skinoniks/laravel-remember-all",
+    "description": "A Laravel session driver to remember all devices a user has logged in with.",
+    "license": "MIT",
+    "require": {
+        "laravel/framework": "^9.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "~1.0",
+        "orchestra/testbench": "^7.6",
+        "laravel/tinker": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "SkinonikS\\Laravel\\RememberAll\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SkinonikS\\Laravel\\RememberAll\\RememberAllServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
