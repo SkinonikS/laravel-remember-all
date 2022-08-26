@@ -136,7 +136,7 @@ class SessionGuard implements StatefulGuardContract, SupportsBasicAuthContract
      */
     public function login(AuthenticatableContract $user, $remember = false)
     {
-        if (($currentUser = $this->user()) && ($recaller = $this->recaller())) {
+        if (($currentUser = $this->user()) && ($recaller = $this->getRecaller())) {
             $this->tokenProvider->invalidateByToken($currentUser, $recaller->token());
         }
 
@@ -158,7 +158,7 @@ class SessionGuard implements StatefulGuardContract, SupportsBasicAuthContract
     {
         $user = $this->user();
 
-        $this->clearUserDataFromStorage($recaller = $this->recaller());
+        $this->clearUserDataFromStorage($recaller = $this->getRecaller());
 
         if ($user && $recaller) {
             $this->tokenProvider->invalidateByToken($user, $recaller->token());
