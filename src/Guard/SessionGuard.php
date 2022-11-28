@@ -108,9 +108,9 @@ class SessionGuard implements StatefulGuardContract, SupportsBasicAuthContract
             $user = $this->tryToGetUserFromRecaller($recaller);
 
             if ($user) {
-                $this->updateSession($this->user->getAuthIdentifier());
+                $this->updateSession($user->getAuthIdentifier());
 
-                $this->fireLoginEvent($this->user, true);
+                $this->fireLoginEvent($user, true);
 
                 return $this->user = $user;
             }
